@@ -1,4 +1,3 @@
-
 package com.mycompany.calculadora_basica;
 
 /**
@@ -6,8 +5,8 @@ package com.mycompany.calculadora_basica;
  * @author leiner
  */
 public class Calculadora_basica {
-//llamo el menu para iniciar la calculadora
-    public static void main(String[] args) {
+//Aqui inicializo el menú
+    public static void main(String[] args) {//aqui inicio el menu principal y muestra las opciones de ingreso y salida
         ClsMenu menu = new ClsMenu();
         menu.iniciarmenu();
     }
