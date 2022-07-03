@@ -10,7 +10,7 @@ public class ClsInicio {
     }
     
     public void inicio(){
-    
+    //En un string creo el menu principal de la calculadora
         String inicio = """
                             Seleccione la operación a realizar
 
@@ -22,13 +22,13 @@ public class ClsInicio {
                         6. Raíz cuadrada
                         7. Salir                    
                         """;
-    
+    // crep string para guardar la opcion del usuario
         String ininicio = "";
   
-        
+        // simpre me va a mostrar el menu mientras 
         do{ 
             ininicio = JOptionPane.showInputDialog(inicio);
-            // hacer un switcase
+            // esto valida si el numero ingresado por el usuario corresponde a la operación él la agecuta segun el numero ingresado.
             
             switch (ininicio) {
                 case "1" -> {
@@ -64,51 +64,18 @@ public class ClsInicio {
                 case "7" -> {
                     JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
                 }
-
+//esto lo puese como solo como ejemplo.
                 default -> ininicio = ".9231/*//8#";                   
             }
-            
+            // sms si el usuario ingresa algo que no sea lo solicitado 
             if (ininicio.equals(".9231/*//8#")){
                 JOptionPane.showMessageDialog(null,"Debe de ingresar una opción valida");
             }
-        }
+        } //miestras la variable sea igual a "eso que está ahí" me va a mostrar un sms de error y me va a mostrar de nuevo el menu principal 
         while (ininicio.equals(".9231/*//8#"));
             
             
         
-/**        
-        
-        if (ininicio.equals("1")){
-           ClsSuma suma = new ClsSuma();
-           suma.suma();
-                   
-        }
-        
-        else if (ininicio.equals("2")){
-            ClsResta resta = new ClsResta();
-            resta.resta();
-        }
-        
-        else if (ininicio.equals("3")){
-            ClsMultiplicacion multiplicacion = new ClsMultiplicacion();
-            multiplicacion.multiplicacion();
-        }
-        
-        else if (ininicio.equals("4")){
-            ClsDivision division = new ClsDivision();
-            division.division();
-        }
-        
-        else if (ininicio.equals("5")){
-            ClsPontencia potencia = new ClsPontencia();
-            potencia.potencia();
-        }
-        
-        else if (ininicio.equals("6")){
-            ClsRcuadrada rcuadrada = new ClsRcuadrada();
-            rcuadrada.rcuadrada();
-        }  
-**/
-        //debo de hacer que me valide si meto algo que no sea numerioco en el rango y que vuelva amostrar el menu, puedo crear una variable y un condicioanl que si lo ingresado no está en un rango se falso y hacer eso mientras sea falso 
+ 
     }
 }
