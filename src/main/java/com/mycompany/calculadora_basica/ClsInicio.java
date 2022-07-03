@@ -10,69 +10,79 @@ public class ClsInicio {
     }
     
     public void inicio(){
-    //En un string creo el menu principal de la calculadora
-        String inicio = """
-                            Seleccione la operación a realizar
+    //creo el menú
+        
+        try{//si no se genera la exepcion me ejecuta el programa
+            String inicio = """
+                                Seleccione la operación a realizar
 
-                        1. Suma
-                        2. Resta
-                        3. Multiplicación
-                        4. Divición
-                        5. Potencia
-                        6. Raíz cuadrada
-                        7. Salir                    
-                        """;
-    // crep string para guardar la opcion del usuario
-        String ininicio = "";
-  
-        // simpre me va a mostrar el menu mientras 
-        do{ 
-            ininicio = JOptionPane.showInputDialog(inicio);
-            // esto valida si el numero ingresado por el usuario corresponde a la operación él la agecuta segun el numero ingresado.
-            
-            switch (ininicio) {
-                case "1" -> {
-                    ClsSuma suma = new ClsSuma();
-                    suma.suma();
+                            1. Suma
+                            2. Resta
+                            3. Multiplicación
+                            4. Divición
+                            5. Potencia
+                            6. Raíz cuadrada
+                            7. Salir                    
+                            """;
+//creo la variable del menu y para tomar el valor ingresado por el cliente
+            String ininicio = "";
+
+//siempre me muestra el menu de opciones y segun el valor ingresado me ejecuta esa funcion 
+            do{ 
+                ininicio = JOptionPane.showInputDialog(inicio);
+                // hacer un switcase
+
+                switch (ininicio) {
+                    case "1" -> {
+                        ClsSuma suma = new ClsSuma();
+                        suma.suma();
+                    }
+
+                    case "2" -> {
+                        ClsResta resta = new ClsResta();
+                        resta.resta();
+                    }
+
+                    case "3" -> {
+                        ClsMultiplicacion multiplicacion = new ClsMultiplicacion();
+                        multiplicacion.multiplicacion();
+                    }
+
+                    case "4" -> {
+                        ClsDivision division = new ClsDivision();
+                        division.division();
+                    }
+
+                    case "5" -> {
+                        ClsPontencia potencia = new ClsPontencia();
+                        potencia.potencia();
+                    }
+
+                    case "6" -> {
+                        ClsRcuadrada rcuadrada = new ClsRcuadrada();
+                        rcuadrada.rcuadrada();
+                    }
+
+                    case "7" -> {
+                        JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
+                    }
+
+                    default -> ininicio = ".9231/*//8#";    //si ninguna de la opcion es valida la variable
+                    //toma este valor de prueba 
                 }
-                
-                case "2" -> {
-                    ClsResta resta = new ClsResta();
-                    resta.resta();
+
+                if (ininicio.equals(".9231/*//8#")){//si la variable vale lo de prueba tira sms y muestra el menu
+                    JOptionPane.showMessageDialog(null,"Debe de ingresar una opción valida");
                 }
-                
-                case "3" -> {
-                    ClsMultiplicacion multiplicacion = new ClsMultiplicacion();
-                    multiplicacion.multiplicacion();
-                }
-                
-                case "4" -> {
-                    ClsDivision division = new ClsDivision();
-                    division.division();
-                }
-                
-                case "5" -> {
-                    ClsPontencia potencia = new ClsPontencia();
-                    potencia.potencia();
-                }
-                
-                case "6" -> {
-                    ClsRcuadrada rcuadrada = new ClsRcuadrada();
-                    rcuadrada.rcuadrada();
-                }
-                
-                case "7" -> {
-                    JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
-                }
-//esto lo puese como solo como ejemplo.
-                default -> ininicio = ".9231/*//8#";                   
             }
-            // sms si el usuario ingresa algo que no sea lo solicitado 
-            if (ininicio.equals(".9231/*//8#")){
-                JOptionPane.showMessageDialog(null,"Debe de ingresar una opción valida");
-            }
-        } //miestras la variable sea igual a "eso que está ahí" me va a mostrar un sms de error y me va a mostrar de nuevo el menu principal 
-        while (ininicio.equals(".9231/*//8#"));
+            while (ininicio.equals(".9231/*//8#")); //y esto se ejecuta simpre que es variable no tenga una opcion valida 
+        
+    }
+    catch(NullPointerException ex){//si user cierra ´por cancel y no por el 7 se genra la exepcion tira sms y se cierra el porgrama 
+            JOptionPane.showMessageDialog(null,"Hasta luego, espero verte pronto");
+        }
+    
+    
             
             
         
