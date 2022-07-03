@@ -19,8 +19,8 @@ public class ClsMenu {
     // metodos retorna un valor y recive parametros
     
     @SuppressWarnings("empty-statement")
-    public void iniciarmenu(){
-        String menu = """
+    public void iniciarmenu(){//creo el menu de incio de la calculadora por si quiere salir y no hacer nada o sí si quiere usar el software
+        String menu = """  
                            Bienvenido a tu calculadora
 
                         Elige una de las siguientes opciones
@@ -30,21 +30,21 @@ public class ClsMenu {
                     """;
         
         String inmenu = "";      
-        //debo buscar la forma de que al ingresar el 2 tire un sms y salga del programa
+        //creo variable para almacenar el dato ingresado por el usuario
        
         do{ 
-            inmenu = JOptionPane.showInputDialog(menu);
+            inmenu = JOptionPane.showInputDialog(menu);//me muestra el menu mientras la opción ingresada sea falsa
             
             switch (inmenu){
-                case "2" -> {
+                case "2" -> {//si es un 2 me cierra el software y se despide 
                    JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
                 }
                 
-                case "1" ->{
+                case "1" ->{//si es 1 me muestra el menu de opciones de inicio para lanzar la aplicación 
                     ClsInicio inicio = new ClsInicio();
                     inicio.inicio();
                 }
-                
+                // si el valor ingresado no es ninguno de los valores ya dados me muestra error y me tira el mismo menu
             default -> inmenu = "pds4s4w";
             }
             
