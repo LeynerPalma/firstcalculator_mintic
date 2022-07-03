@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.calculadora_basica;
 import javax.swing.JOptionPane;
 /**
  *
- * @author leine
+ * @author leiner
  */
 public class ClsMenu {
 
@@ -19,40 +15,46 @@ public class ClsMenu {
     // metodos retorna un valor y recive parametros
     
     @SuppressWarnings("empty-statement")
-    public void iniciarmenu(){//creo el menu de incio de la calculadora por si quiere salir y no hacer nada o sí si quiere usar el software
-        String menu = """  
-                           Bienvenido a tu calculadora
-
-                        Elige una de las siguientes opciones
-
-                        1. Ingresar a la calculadora
-                        2. Salir
-                    """;
+    public void iniciarmenu(){
         
-        String inmenu = "";      
-        //creo variable para almacenar el dato ingresado por el usuario
-       
-        do{ 
-            inmenu = JOptionPane.showInputDialog(menu);//me muestra el menu mientras la opción ingresada sea falsa
-            
-            switch (inmenu){
-                case "2" -> {//si es un 2 me cierra el software y se despide 
-                   JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
+        try{//si la exepcion no se activa se ejecuta esto
+            String menu = """
+                               Bienvenido a tu calculadora
+
+                            Elige una de las siguientes opciones
+
+                            1. Ingresar a la calculadora
+                            2. Salir
+                        """;
+//creo las variable una del menu a mostrar al usuario y la otra para tomar el valor ingresado por el user
+            String inmenu = "";      
+            //debo buscar la forma de que al ingresar el 2 tire un sms y salga del programa
+
+            do{ //mostrar el menu siempre que la opcion no sea valida 
+                inmenu = JOptionPane.showInputDialog(menu);
+
+                switch (inmenu){//si es un 2 se cierra el programa 
+                    case "2" -> {
+                       JOptionPane.showMessageDialog(null,"Espero verte pronto, hasta luego");
+                    }
+
+                    case "1" ->{//si es 1 me muestra el menu de opciones
+                        ClsInicio inicio = new ClsInicio();
+                        inicio.inicio();
+                    }
+
+                default -> inmenu = "pds4s4w";//si no es ninguna de las 2 la variable toma este valor de prueba
                 }
-                
-                case "1" ->{//si es 1 me muestra el menu de opciones de inicio para lanzar la aplicación 
-                    ClsInicio inicio = new ClsInicio();
-                    inicio.inicio();
+
+                if (inmenu.equals("pds4s4w")){//si la variable es igual a valor de prueba me saca sms par una opcion valida
+                    JOptionPane.showMessageDialog(null, "Debes de ingresar una opción valida");
                 }
-                // si el valor ingresado no es ninguno de los valores ya dados me muestra error y me tira el mismo menu
-            default -> inmenu = "pds4s4w";
-            }
-            
-            if (inmenu.equals("pds4s4w")){
-                JOptionPane.showMessageDialog(null, "Debes de ingresar una opción valida");
-            }
-            
-        } while (inmenu.equals("pds4s4w"));
+
+            } while (inmenu.equals("pds4s4w"));//miestras lo que se ingrese no es lo solicitado me muestra el menu
+        }
+        catch(NullPointerException ex){//si el user da en cancel y no en con el 2 no se genera error solo muestra el sms y se cierra el programa 
+            JOptionPane.showMessageDialog(null,"Hasta luego, espero verte pronto");
+        }
         
         
        
